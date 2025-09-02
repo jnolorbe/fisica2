@@ -1,0 +1,25 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  id: 4ebc67cb-f8cc-48c0-81f2-e9e553054217
+  title: FÍSICA 2
+  description: Este es un libro de texto para el curso de Física 2, diseñado para estudiantes de ingeniería con conocimientos de cálculo.Incluye teoría, problemas resueltos y propuestos que buscan desarrollar las capacidades de análsisi y pensamiento crítico en la ressolución de problemas.
+  keywords:
+    - Fisica
+    - Elasticidad
+    - Oscilaciones
+    - Ondas
+    - Hidrostática
+    - Hidrodinámica
+    - Termodinámica
+  github: jnolorbe/fisica2
+  toc:
+    - file: intro.md
+    - title: 1. Elasticidad
+      children:
+        - file: capitulo1/esfuerzonormal.md
+site:
+  template: book-theme
+  # options:
+  #   favicon: favicon.ico
+  #   logo: site_logo.png
