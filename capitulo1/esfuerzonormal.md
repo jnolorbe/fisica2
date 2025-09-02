@@ -239,13 +239,32 @@ $$K \,=\,\frac{E}{3(1- 2\mu)}$$
 
 
 ## Problemas Propuestos
-### Problema 1
-La figura muestra tres barras de latón (90 GPa) unidos por una barra rígida y empotradas en la pared. Se ejercen fuerzas de 40 kN sobre la barra rígida. Deducir:
-  
- a. el esfuerzo en las barras AB, CD y EF.
- b. La deformación unitaria de la barra EF.
- 
-![enter image description here](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxbDO9_A_C3L-F6z_4tA3dH5OiSN0pHg5rYFZxqFaysnk4fdoK&s)
+### Problema 1: Diseño de un cable conductor para una línea de transmisión 💡
+
+Se está diseñando una línea de transmisión de alta tensión que debe cruzar un valle. Para la selección del material, el equipo de ingenieros ha evaluado dos aleaciones conductoras: una de Cobre (Cu) y otra de Aluminio (Al), cuyas curvas de esfuerzo vs. deformación se muestran en la [](#fig1).
+
+```{figure} https://s3-us-west-2.amazonaws.com/courses-images-archive-read-only/wp-content/uploads/sites/222/2014/12/20102444/Figure_06_03_09a.jpg
+:label: fig1
+:alt: curva esfuerzo deformacion cobre y aluminio
+:width: 30%
+:align: center
+Figura 8.  Curva esfuerzo deformación Cobre y Aluminio ([](https://doi.org/10.3390/ma14216305) )
+```
+- a) Calcula el Módulo de Young (E) para cada material.
+
+- b. Determina cuál de los dos materiales es más rígido y  justifica tu respuesta.
+
+c. Estima el valor del límite de fluencia para cada material.
+
+d. Se estima que el cable experimentará un esfuerzo máximo de 300
+	MPa. Con base en el límite de fluencia de cada material, determina
+	cuál de los dos es el más adecuado para el cable conductor y justifica tu respuesta.
+
+e. Suponiendo que se ha elegido el material más adecuado y que el
+	cable tiene un área de sección transversal de 120 mm^2, calcula la fuerza máxima que puede soportar en el tramo elástico.
+
+f. Si el tramo del cable es de 500 metros, calcula el cambio de
+	longitud que experimentará bajo un esfuerzo de 300 MPa.
 
 ### Problema 2
 La figura muestra tres barras de latón (90 GPa) unidos por una barra rígida y empotradas en la pared. Se ejercen fuerzas de 40 kN sobre la barra rígida. Deducir:
@@ -257,5 +276,6 @@ La figura muestra tres barras de latón (90 GPa) unidos por una barra rígida y 
  - https://www.doitpoms.ac.uk/tlplib/mechanical_properties/tensile.php
  - https://www.youtube.com/embed/XTfMkBiUXOA
  - https://courses.lumenlearning.com/suny-osuniversityphysics/chapter/12-3-stress-strain-and-elastic-modulus/
+ - https://github.com/jnolorbe/fisica2/blob/main/figuras/curvaesfuerzodeformacion.jpg
 
  
