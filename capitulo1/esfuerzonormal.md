@@ -10,10 +10,12 @@ Para comprender y cuantificar estas propiedades, los ingenieros utilizan ensayos
 
 Este ensayo no solo evalúa la elasticidad, sino también otras propiedades mecánicas como la resistencia y la plasticidad, que es la capacidad del material para deformarse de forma permanente sin romperse
 
-```{iframe} https://www.doitpoms.ac.uk/tlplib/mechanical_properties/videos/copper.mp4
-Video 1.  Deformación de una probeta de cobre por ensayo de tracción
+```{iframe} https://www.doitpoms.ac.uk/vidlib/videos/video/annealed1.mp4
+:alt: ensayo de tracción
+:width: 80%
+:align: center
+Video 1.  Ensayo de tracción de una probeta de cobre
 ```
-
 
 ---
 ## Esfuerzos Normales
