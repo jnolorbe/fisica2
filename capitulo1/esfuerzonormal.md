@@ -245,12 +245,12 @@ $$K \,=\,\frac{E}{3(1- 2\mu)}$$
 
 Se está diseñando una línea de transmisión de alta tensión que debe cruzar un valle. Para la selección del material, el equipo de ingenieros ha evaluado dos aleaciones conductoras: una de Cobre (Cu) y otra de Aluminio (Al), cuyas curvas de esfuerzo vs. deformación se muestran en la [](#fig1).
 
-```{figure} https://s3-us-west-2.amazonaws.com/courses-images-archive-read-only/wp-content/uploads/sites/222/2014/12/20102444/Figure_06_03_09a.jpg
+```{figure} https://github.com/jnolorbe/fisica2/blob/main/figuras/curvaesfuerzodeformacion.jpg
 :label: fig1
 :alt: curva esfuerzo deformacion cobre y aluminio
 :width: 30%
 :align: center
-Figura 8.  Curva esfuerzo deformación Cobre y Aluminio ([](https://doi.org/10.3390/ma14216305) )
+Curva esfuerzo deformación Cobre y Aluminio ([](https://doi.org/10.3390/ma14216305) )
 ```
 - a) Calcula el Módulo de Young (E) para cada material.
 
