@@ -18,6 +18,9 @@ project:
     - title: 1. Elasticidad
       children:
         - file: capitulo1/esfuerzonormal.md
+    - title: Practica Dirigidas
+      children:
+        - file: practicas/pdelasticidad01.md
 site:
   template: book-theme
   # options:

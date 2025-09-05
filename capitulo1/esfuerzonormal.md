@@ -242,7 +242,7 @@ De aqui se define el módulo de compresibiliad K.
 $$K \,=\,\frac{E}{3(1- 2\mu)}$$
 
 
-## Problemas Propuestos
+## Problemas Resueltos
 ---
 ```{admonition} Problema 1: Diseño de un cable conductor para una línea de transmisión 💡
 :class: important
@@ -262,8 +262,7 @@ Curva esfuerzo deformación Cobre y Aluminio ([](https://doi.org/10.3390/ma14216
 - d) Si el tramo del cable es de $500 \text{ m}$, calcula el cambio de longitud que experimentará bajo un esfuerzo de $300 \text{ MPa}$.
 
 ```
-
-```{admonition} Resolución
+```{admonition} Solución
 :class: dropdown hint
 **a)** En el tramo lineal de cada gráfica, es posible estimar que para $\delta = 2 \times 10^{-3}$, los esfuerzos en cada material son: $\sigma_{Al} = 120 \text{ MPa}$ y $\sigma_{Cu} = 250 \text{ MPa}$. por lo que el módulo de Young se calcula:
 
@@ -292,6 +291,31 @@ $\Delta L = \sigma L_{o} / E = (300 \text{ MPa}) (500 \text{ m})/ 125 \text{ GPa
 $\Delta L = 1.2 \text{ m}$
 ```
 ---
+
+```{admonition} Problema 2: Cable compuesto 💡
+:class: important
+Una varilla de cobre de longitud $100 \text{ cm}$ y de sección $2 \text{ cm}^2$ esta sujeta por uno de sus extremos a otra varilla de acero dulce de longitud $L$ y de sección $4 \text{ cm}^2$. Esta varilla compuesta se somete a una tracción de $30 \text{ kN}$ en sus extremos. Si la deformación longitudinal de cada varilla es la misma, deducir la longitud $L$ de la varilla de acero dulce. ($E_{cobre} = 130 \text{ GPa}$, $E_{acero} = 270 \text{ GPa}$).
+```
+
+```{admonition} Solución
+:class: dropdown hint
+
+- La deformación de las varillas son iguales: 
+
+$\Delta L_{cobre}=\Delta L_{acero}$
+
+- Utilizando la Ley de Hooke:
+
+$[\frac{FL_o}{AE}]_{cobre} = [\frac{FL_o}{AE}]_{acero}$
+
+$\frac{100 \text{ cm}}{(2 \text{ cm}^{2})(130 \text{ GPa})}=\frac{L}{(4 \text{ cm}^{2})(210\text{ GPa})}$
+
+$L=320 \text{ cm}$
+
+
+```
+---
+
 
  ## Referencias:
  - https://www.doitpoms.ac.uk/tlplib/mechanical_properties/tensile.php
