@@ -11,7 +11,6 @@ Para comprender y cuantificar estas propiedades, los ingenieros utilizan ensayos
 Este ensayo no solo evalúa la elasticidad, sino también otras propiedades mecánicas como la resistencia y la plasticidad, que es la capacidad del material para deformarse de forma permanente sin romperse
 
 ```{iframe} https://www.doitpoms.ac.uk/vidlib/videos/video/annealed1.mp4
-:alt: ensayo de tracción
 :width: 80%
 :align: center
 Video 1.  Ensayo de tracción de una probeta de cobre
@@ -85,25 +84,27 @@ Figura 2.  Máquina de ensayo de tracción universal
 :class: centered-caption
 Figura 3.  Probetas para ensayos de tracción
 ```
-El resultado de los ensayos de tracción se muestra en una gráfica de la tensión o esfuerzo (en MPa) vs deformación unitaria (en %), que es característico de cada material, en ella se puede observar una zona elástica, en la que que el esfuerzo y la deformación tienen una relación lineal y la zona plástica donde el material se deforma sin que exista un incremento apreciable en el esfuerzo. El punto de máximo esfuerzo se le denomina resistencia a la tracción, a partir de este punto el material continua deformándose a pesar de que el esfuerzo empieza a disminuir hasta que se produce la ruptura, tal como se observa en la siguiente figura.
+El resultado de los ensayos de tracción se muestra en una gráfica de la tensión o esfuerzo (en MPa) vs deformación unitaria (en %), que es característico de cada material, en ella se puede observar una zona elástica, en la que que el esfuerzo y la deformación tienen una relación lineal y la zona plástica donde el material se deforma sin que exista un incremento apreciable en el esfuerzo. 
 
-```{figure} http://www.mecapedia.uji.es/images/modulo_de_elasticidad.2.gif
+En la gráfica se puede observar el _punto de fluencia_ ($Y$) donde el material deja de comportarse elásticamente para comenzar a deformarse de forma irreversible. En materiales que no tienen un punto de fluencia claro, se define el "_límite convencional de fluencia_", que es la tensión ($S_Y$) necesaria para alcanzar una deformación permanente específica del $0.2\%$. El punto de máximo esfuerzo $U$ se le denomina resistencia a la tracción $S_U$, a partir de este punto el material continua deformándose a pesar de que el esfuerzo empieza a disminuir hasta que se produce la ruptura $F$.
+
+:::{figure} http://www.mecapedia.uji.es/images/modulo_de_elasticidad.2.gif
 :alt: curva esfuerzo - deformacion
 :width: 50%
 :align: center
 :class: centered-caption
 Figura 4.  Gráfica de la tensión vs. la deformación unitaria
-```
+:::
 
 En la siguiente Figura se compara la gráfica de la tensión vs deformación de un material Frágil y un material Ductil.
 
-```{figure} http://www.mecapedia.uji.es/images/ensayo_de_traccion.1.gif
+:::{figure} http://www.mecapedia.uji.es/images/ensayo_de_traccion.1.gif
 :alt: material ductil y fragil
 :width: 50%
 :align: center
 :class: centered-caption
 Figura 5.  Curva esfuerzo - deformación de un material fragil y otro ductil
-```
+:::
 ---
 ## Módulo de elasticidad
 En la siguiente tabla se muestra los valores del módulo de elasticidad de algunos materiales.
@@ -164,12 +165,13 @@ $\delta_{L}$ = Deformación longitudinal
 
 El signo negativo en la ecuación indica que mientras la deformación longitudﬁnal aumenta, la deformación transversal disminuye, o viceversa.
 
-```{figure} https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/PoissonRatio.svg/300px-PoissonRatio.svg.png
+:::{figure} https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/PoissonRatio.svg/300px-PoissonRatio.svg.png
 :alt: coeficiente de poisson
 :width: 50%
 :align: center
 Figura 6.  Deformación transversal de una varilla
-```
+:::
+
 ## Coeficiente de Poisson
 En la siguiente tabla se muestra los valores del coeficiente de Poisson de algunos materiales.
 
@@ -241,38 +243,55 @@ $$K \,=\,\frac{E}{3(1- 2\mu)}$$
 
 
 ## Problemas Propuestos
-### Problema 1: Diseño de un cable conductor para una línea de transmisión 💡
-
+---
+```{admonition} Problema 1: Diseño de un cable conductor para una línea de transmisión 💡
+:class: important
 Se está diseñando una línea de transmisión de alta tensión que debe cruzar un valle. Para la selección del material, el equipo de ingenieros ha evaluado dos aleaciones conductoras: una de Cobre (Cu) y otra de Aluminio (Al), cuyas curvas de esfuerzo vs. deformación se muestran en la [](#fig1).
 
-```{figure} https://github.com/jnolorbe/fisica2/blob/main/figuras/curvaesfuerzodeformacion.jpg
+:::{figure} https://github.com/jnolorbe/fisica2/blob/main/figuras/curvaesfuerzodeformacion.jpg
 :label: fig1
 :alt: curva esfuerzo deformacion cobre y aluminio
-:width: 30%
+:width: 50%
 :align: center
 Curva esfuerzo deformación Cobre y Aluminio ([](https://doi.org/10.3390/ma14216305) )
+:::
+
+- a) Calcula el Módulo de Young para cada material y determina cuál de los dos materiales es más elástico.
+- b) Se estima que el cable experimentará un esfuerzo máximo de $300 \text{ MPa}$, determina cuál de los dos materiales es el más adecuado.
+- c) Si el cable tendrá una sección transversal de $120 mm^2$, calcula la máxima tensión (en kN) que soportará en el tramo elástico.
+- d) Si el tramo del cable es de $500 \text{ m}$, calcula el cambio de longitud que experimentará bajo un esfuerzo de $300 \text{ MPa}$.
+
 ```
-- a) Calcula el Módulo de Young (E) para cada material.
 
-- b. Determina cuál de los dos materiales es más rígido y  justifica tu respuesta.
+```{admonition} Resolución
+:class: dropdown hint
+**a)** En el tramo lineal de cada gráfica, es posible estimar que para $\delta = 2 \times 10^{-3}$, los esfuerzos en cada material son: $\sigma_{Al} = 120 \text{ MPa}$ y $\sigma_{Cu} = 250 \text{ MPa}$. por lo que el módulo de Young se calcula:
 
-c. Estima el valor del límite de fluencia para cada material.
+$E_{Al} = \frac{\sigma_{Al}}{\delta} = \frac{120 \text{ MPa}}{2 \times 10^{-3}} = 60 \text{ GPa}$
 
-d. Se estima que el cable experimentará un esfuerzo máximo de 300
-	MPa. Con base en el límite de fluencia de cada material, determina
-	cuál de los dos es el más adecuado para el cable conductor y justifica tu respuesta.
+$E_{Cu} = \frac{\sigma_{Cu}}{\delta} = \frac{250 \text{ MPa}}{2 \times 10^{-3}} = 125 \text{ GPa}$
 
-e. Suponiendo que se ha elegido el material más adecuado y que el
-	cable tiene un área de sección transversal de 120 mm^2, calcula la fuerza máxima que puede soportar en el tramo elástico.
+**El resultado muestra que el aluminio es más elástico que el cobre.**
 
-f. Si el tramo del cable es de 500 metros, calcula el cambio de
-	longitud que experimentará bajo un esfuerzo de 300 MPa.
+**b)** En la gráfica se muestra que el límite de fluencia de cada material son aproximadamente: 
+- $\sigma_{Y(Al)} = 250 \text{ MPa}$
+- $\sigma_{Y(Cu)} = 450 \text{ MPa}$
 
-### Problema 2
-La figura muestra tres barras de latón (90 GPa) unidos por una barra rígida y empotradas en la pared. Se ejercen fuerzas de 40 kN sobre la barra rígida. Deducir:
-  
- a. el esfuerzo en las barras AB, CD y EF.
- b. La deformación unitaria de la barra EF.
+El cobre será el materia que pueda soportar un esfuerzo máximo de $ 300 \text{ MPa}$ sin que el materia experimente deformaciones permanentes.
+
+**c)** La máxima tensión que el cable puede soportar es:
+
+$F_{max} = \sigma_{max} A = (300 \text{ MPa})(120 mm^2)$
+
+$F_{max} = 36 000 \text{ N}= 36 \text{ kN}$
+
+**d)** El cambio de longitud es:
+
+$\Delta L = \sigma L_{o} / E = (300 \text{ MPa}) (500 \text{ m})/ 125 \text{ GPa}$
+
+$\Delta L = 1.2 \text{ m}$
+```
+---
 
  ## Referencias:
  - https://www.doitpoms.ac.uk/tlplib/mechanical_properties/tensile.php
