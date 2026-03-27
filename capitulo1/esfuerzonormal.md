@@ -4,9 +4,9 @@
 Para estudiar las propiedades mecánicas de los materiales, tales como elásticidad y plasticidad, se utilizan probetas o barras que son sometidas a fuerzas de tracción o compresión, hasta que se produce la rotura de la probeta. Este ensayo mide la resistencia de un material a una fuerza estática o aplicada lentamente.
 
 La elasticidad es la propiedad mecánica de ciertos materiales de sufrir deformaciones reversibles debido a la acción de fuerzas y de recuperar su forma original luego de que estas fuerzas se supriman.
-Cuando aplicamos una fuerza a un objeto, este puede deformarse. La elasticidad es la propiedad que tienen algunos materiales de deformarse de manera reversible ante una fuerza y, luego de que la fuerza se retira, recuperar completamente su forma original. Piensa en un resorte o una banda elástica: se estiran al aplicar una fuerza y vuelven a su estado inicial cuando la sueltas.
+Piensa en una pelota o un resorte: Al ejercer una fuerza sobre estos, se deforman y luego vuelven a su estado original una vez que la fuerza se suprime.
 
-Para comprender y cuantificar estas propiedades, los ingenieros utilizan ensayos de materiales. Uno de los más comunes es la prueba de tracción y compresión, donde se somete una muestra cilíndrica o en forma de barra, conocida como probeta, a una fuerza que la estira (tracción) o la aplasta (compresión) lentamente.
+Para comprender y cuantificar estas propiedades, se utilizan ensayos de materiales, uno de los más comunes es la prueba de tracción y compresión, donde se somete una muestra cilíndrica o en forma de barra, conocida como probeta, a una fuerza que la estira (tracción) o la aplasta (compresión) lentamente.
 
 Este ensayo no solo evalúa la elasticidad, sino también otras propiedades mecánicas como la resistencia y la plasticidad, que es la capacidad del material para deformarse de forma permanente sin romperse
 
@@ -19,7 +19,7 @@ Video 1.  Ensayo de tracción de una probeta de cobre
 ---
 ## Esfuerzos Normales
 
-Cuando aplicas una fuerza a un objeto, este experimenta una tensión interna que contrarresta la fuerza externa. Esta tensión interna se conoce como esfuerzo. El esfuerzo normal se produce cuando la fuerza aplicada es perpendicular a la superficie del material.
+Cuando aplicas una fuerza a un objeto, este experimenta una tensión interna que contrarresta la fuerza externa. Esta tensión interna por unidad de área se conoce como esfuerzo. El esfuerzo normal se produce cuando la fuerza aplicada es perpendicular a la superficie del material.
 
 Se clasifica en dos tipos principales:
 
@@ -216,7 +216,7 @@ Considera un bloque rectangular sujeto a fuerzas de compresión normal a toda su
 :alt: compresibilidad
 :width: 50%
 :align: center
-Figura 7.  Defomeación Volumétrica
+Figura 7.  Deformación Volumétrica
 ```
 
 La deformación total en la dirección del eje  X, resulta ser la suma de la deformación longitudinal debido al esfuerzo de tracción en el eje X más las defomaciones transversales debido a los esfuerzos  de tracción en los ejes Y y Z, y de este mismo modo la deformación total en cada una de las direcciones se expresa:
