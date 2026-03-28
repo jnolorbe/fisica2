@@ -15,13 +15,14 @@ project:
   github: jnolorbe/fisica2
   toc:
     - file: intro.md
-    - title: 1. Elasticidad
+    - title: Contenido Temático
       children:
         - file: capitulo1/esfuerzonormal.md
         - file: capitulo1/esfuerzocizalla.md
     - title: Practica Dirigidas
       children:
         - file: practicas/pdelasticidad01.md
+        - file: practicas/pdelasticidad02.md
 site:
   template: book-theme
   # options:

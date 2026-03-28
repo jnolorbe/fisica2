@@ -1,4 +1,4 @@
-# Esfuerzo normal 
+# Sesión 1: Esfuerzos Normales
 
 ## Introducción
 Para estudiar las propiedades mecánicas de los materiales, tales como elásticidad y plasticidad, se utilizan probetas o barras que son sometidas a fuerzas de tracción o compresión, hasta que se produce la rotura de la probeta. Este ensayo mide la resistencia de un material a una fuerza estática o aplicada lentamente.
