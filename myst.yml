@@ -17,8 +17,8 @@ project:
     - file: intro.md
     - title: Contenido Temático
       children:
-        - file: capitulo1/esfuerzonormal.md
-        - file: capitulo1/esfuerzocizalla.md
+        - file: sesiones/esfuerzonormal.md
+        - file: sesiones/esfuerzocizalla.md
     - title: Practica Dirigidas
       children:
         - file: practicas/pdelasticidad01.md

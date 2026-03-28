@@ -163,9 +163,9 @@ $\mu$ =Coeficiente de Poisson.
 
 $\delta_{L}$ = Deformación longitudinal
 
-El signo negativo en la ecuación indica que mientras la deformación longitudﬁnal aumenta, la deformación transversal disminuye, o viceversa.
+El signo negativo en la ecuación indica que mientras la deformación longitudﬁnal aumenta, la deformación transversal disminuye, o viceversa. 
 
-:::{figure} https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/PoissonRatio.svg/300px-PoissonRatio.svg.png
+:::{figure} https://en.wikipedia.org/wiki/Poisson%27s_ratio#/media/File:PoissonRatio.svg.png
 :alt: coeficiente de poisson
 :width: 50%
 :align: center
@@ -174,7 +174,6 @@ Figura 6.  Deformación transversal de una varilla
 
 ## Coeficiente de Poisson
 En la siguiente tabla se muestra los valores del coeficiente de Poisson de algunos materiales.
-
 
 <table border="1">
 <caption>Tabla 2. Coeficiente de Poisson</caption>
@@ -246,14 +245,13 @@ $$K \,=\,\frac{E}{3(1- 2\mu)}$$
 ---
 ```{admonition} Problema 1: Diseño de un cable conductor para una línea de transmisión 💡
 :class: important
-Se está diseñando una línea de transmisión de alta tensión que debe cruzar un valle. Para la selección del material, el equipo de ingenieros ha evaluado dos aleaciones conductoras: una de Cobre (Cu) y otra de Aluminio (Al), cuyas curvas de esfuerzo vs. deformación se muestran en la [](#fig1).
+Se está diseñando una línea de transmisión de alta tensión que debe cruzar un valle. Para la selección del material, el equipo de ingenieros ha evaluado dos aleaciones conductoras: una de Cobre (Cu) y otra de Aluminio (Al), cuyas curvas de esfuerzo vs. deformación se muestran en la Figura.
 
 :::{figure} https://github.com/jnolorbe/fisica2/blob/main/figuras/curvaesfuerzodeformacion.jpg
-:label: fig1
 :alt: curva esfuerzo deformacion cobre y aluminio
 :width: 50%
 :align: center
-Curva esfuerzo deformación Cobre y Aluminio ([](https://doi.org/10.3390/ma14216305) )
+Figura 8. Curva esfuerzo deformación Cobre y Aluminio ([](https://doi.org/10.3390/ma14216305) )
 :::
 
 - a) Calcula el Módulo de Young para cada material y determina cuál de los dos materiales es más elástico.

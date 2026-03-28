@@ -1,4 +1,4 @@
-# Práctica Dirigida 2: Esfuerzos Cortantes
+# Práctica 2: Esfuerzos Cortantes
 **Curso:** Física 2 (EG-209)  
 **Facultad:** Ingeniería Eléctrica y Electrónica - UNAC  
 **Docente:** Juan Neil Mendoza Nolorbe  
