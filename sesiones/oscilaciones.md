@@ -142,17 +142,19 @@ En los sistemas oscilantes reales, las fuerzas de fricción disipan la energía 
 :alt: Oscilaciones amortiguadas
 :width: 60%
 :align: center
-**Figura 5.** Sistemas oscilantes amortiguados con agua, aceite y aire, [! Ver video][https://www.youtube.com/watch?v=FZNtXdAtFGE]
+**Figura 5.** Sistemas oscilantes amortiguados con agua, aceite y aire 
 :::
+
+<<!--- [https://www.youtube.com/watch?v=FZNtXdAtFGE] --->>
 
 ### Sistma Masa - Resorte Amortiguado
 El caso más común es un oscilador sujeto a una fuerza viscosa proporcional a la velocidad: $\vec{f} = -c\vec{v}$, donde $c$ es el coeficiente de amortiguamiento.
 
 :::{figure} https://github.com/jnolorbe/fisica2/blob/main/figuras/s4_maa02.png
 :alt: Sistema oscilatorio amortiguado
-:width: 60%
+:width: 40%
 :align: center
-**Figura 6.**. Fuerzas Recuperadora y Fuerza Viscosa
+**Figura 6.** Fuerzas Recuperadora y Fuerza Viscosa
 :::
 
 Aplicando la segunda ley de Newton $F_{neta} = ma = md^2x/dt^2$ y $v = dx/dt$ se tiene la ecuación diferencial de las oscilaciones amortiguadas:
@@ -173,7 +175,7 @@ Donde:
 3. **Sobreamortiguamiento ($\gamma > \omega_o$):** El sistema es tan "pesado" que regresa al equilibrio muy lentamente, sin oscilar.
 
 ::: {figure} https://jnolorbe/fisica2/main/figuras/oscilaciones_amortiguadas.png
-:width: 70%
+:width: 40%
 :align: center
 **Figura 7.** Comparación de los tres regímenes de amortiguamiento.
 :::
