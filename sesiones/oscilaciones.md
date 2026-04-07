@@ -145,8 +145,6 @@ En los sistemas oscilantes reales, las fuerzas de fricción disipan la energía 
 **Figura 5.** Sistemas oscilantes amortiguados con agua, aceite y aire 
 :::
 
-<!--- [https://www.youtube.com/watch?v=FZNtXdAtFGE] --->
-
 ### Sistma Masa - Resorte Amortiguado
 El caso más común es un oscilador sujeto a una fuerza viscosa proporcional a la velocidad: $\vec{f} = -c\vec{v}$, donde $c$ es el coeficiente de amortiguamiento.
 
@@ -174,7 +172,7 @@ Donde:
 2. **Amortiguamiento Crítico ($\gamma = \omega_o$):** El sistema no oscila y regresa al equilibrio en el tiempo mínimo posible. Es el ajuste ideal para amortiguadores de vehículos.
 3. **Sobreamortiguamiento ($\gamma > \omega_o$):** El sistema es tan "pesado" que regresa al equilibrio muy lentamente, sin oscilar.
 
-::: {figure} https://jnolorbe/fisica2/main/figuras/oscilaciones_amortiguadas.png
+::: {figure} https://github.com/jnolorbe/fisica2/blob/main/figuras/oscilaciones_amortiguadas.png
 :width: 40%
 :align: center
 **Figura 7.** Comparación de los tres regímenes de amortiguamiento.
