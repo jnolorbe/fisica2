@@ -140,12 +140,12 @@ En los sistemas oscilantes reales, las fuerzas de fricción disipan la energía 
 
 :::{figure} https://github.com/jnolorbe/fisica2/blob/main/figuras/s4_maa01.jpg
 :alt: Oscilaciones amortiguadas
-:width: 60%
+:width: 30%
 :align: center
 **Figura 5.** Sistemas oscilantes amortiguados con agua, aceite y aire 
 :::
 
-<<!--- [https://www.youtube.com/watch?v=FZNtXdAtFGE] --->>
+<!--- [https://www.youtube.com/watch?v=FZNtXdAtFGE] --->
 
 ### Sistma Masa - Resorte Amortiguado
 El caso más común es un oscilador sujeto a una fuerza viscosa proporcional a la velocidad: $\vec{f} = -c\vec{v}$, donde $c$ es el coeficiente de amortiguamiento.
