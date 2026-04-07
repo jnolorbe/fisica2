@@ -172,7 +172,7 @@ Donde:
 2. **Amortiguamiento Crítico ($\gamma = \omega_o$):** El sistema no oscila y regresa al equilibrio en el tiempo mínimo posible. Es el ajuste ideal para amortiguadores de vehículos.
 3. **Sobreamortiguamiento ($\gamma > \omega_o$):** El sistema es tan "pesado" que regresa al equilibrio muy lentamente, sin oscilar.
 
-::: {figure} https://raw.githubusercontent.com/jnolorbe/fisica2/main/figuras/s4_damped_graphs.png
+::: {figure} https://jnolorbe/fisica2/main/figuras/oscilaciones_amortiguadas.png
 :width: 70%
 :align: center
 **Figura 7.** Comparación de los tres regímenes de amortiguamiento.
