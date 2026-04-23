@@ -15,15 +15,16 @@ project:
   github: jnolorbe/fisica2
   toc:
     - file: intro.md
-    - title: Contenido Temático
+    - title: Unidad 1
       children:
-        - file: sesiones/esfuerzonormal.md
-        - file: sesiones/esfuerzocizalla.md
-        - file: sesiones/oscilaciones.md
-    - title: Practica Dirigidas
+        - file: sesiones/sesion01.md
+        - file: sesiones/sesion02.md
+        - file: sesiones/sesion03.md
+    - title: Unidad 2
       children:
-        - file: practicas/pdelasticidad01.md
-        - file: practicas/pdelasticidad02.md
+        - file: sesiones/sesion05.md
+        - file: sesiones/sesion06.md
+        - file: sesiones/sesion07.md
 site:
   template: book-theme
   # options:

@@ -1,6 +1,8 @@
 # Sesión 3: Oscilaciones
 
-## Introducción
+## I. Fundamento Teórico
+
+### Introducción
 
 Imagina entrar al Panteón de París en 1851. Del techo cuelga un cable de 67 metros con una pesada esfera de bronce. El péndulo comienza a oscilar en una línea recta, pero con el paso de las horas, notas algo inquietante: la trayectoria de oscilación parece girar lentamente.
 
@@ -15,7 +17,7 @@ Figura 1. Péndulo de Foucault en la Ciudad de las Artes y las Ciencias, Valenci
 
 ---
 
-## 1. Cinemática del Movimiento Armónico Simple
+### Cinemática del Movimiento Armónico Simple
 
 Una partícula describe un **Movimiento Armónico Simple (MAS)** cuando oscila en línea recta alrededor de una posición de equilibrio con un periodo de oscilación constante. Las ecuaciones cinemáticas de posición ($\vec{x}$), velocidad ($\vec{v}$) y aceleración ($\vec{a}$) se expresan mediante funciones armónicas sinusoidales:
 
@@ -61,7 +63,7 @@ Figura 3. Diagrama de fase de un MAS
 
 **Análisis físico:**
 * En los extremos ($x = \pm A$), la velocidad es nula ($\vec{v} = 0$).
-* En el equilibrio ($x = 0$), la velocidad es máxima ($v_{máx} = \pm A\omega$).
+* En el equilibrio ($x = 0$), la velocidad es máxima ($v_{max} = \pm A\omega$).
 
 #### Aceleración y Desplazamiento
 Al relacionar $\vec{x}$ con $\vec{a}$, se observa que la aceleración es directamente proporcional pero opuesta al desplazamiento:
@@ -72,7 +74,7 @@ Este signo negativo es fundamental: evidencia que la aceleración siempre apunta
 
 ---
 
-## 2. Dinámica del Movimiento Armónico Simple
+### Dinámica del Movimiento Armónico Simple
 
 Según la segunda ley de Newton ($\vec{F} = m\vec{a}$), la fuerza necesaria para generar este movimiento es:
 
@@ -81,23 +83,23 @@ $$\vec{F}_{neta} = -m\omega^2 \vec{x}$$
 Esta fuerza es proporcional y opuesta al desplazamiento, por lo que se define como una **Fuerza Recuperadora**.
 
 ---
-## 3. Energía del Movimiento Armónico Simple
+### Energía del Movimiento Armónico Simple
 
-### Energía Potencial ($U$)
+#### Energía Potencial ($U$)
 La fuerza recuperadora es conservativa, por lo que tiene asociada una energía potencial elástica:
 $$U = \frac{1}{2}m \omega^2 x^2$$
 
-### Conservación de la Energía Mecánica ($E$)
+#### Conservación de la Energía Mecánica ($E$)
 En ausencia de fricción, la energía cinética ($K$) y la potencial ($U$) se intercambian constantemente, pero su suma permanece invariable:
 
 $$E = \frac{1}{2}mv^2 + \frac{1}{2}m \omega^2 x^2 = \text{constante}$$
 
 * **En los extremos ($x = \pm A$):** La energía es puramente potencial ($E = \frac{1}{2}m \omega^2 A^2$).
-* **En el equilibrio ($x = 0$):** La energía es puramente cinética ($E = \frac{1}{2}mv_{máx}^2$).
+* **En el equilibrio ($x = 0$):** La energía es puramente cinética ($E = \frac{1}{2}mv_{max}^2$).
 
-## 4. Sistemas Oscilantes Clásicos
+### Sistemas Oscilantes Clásicos
 
-### Sistema Masa-Resorte
+#### Sistema Masa-Resorte
 Para una masa $m$ sujeta a un resorte de constante $k$ (Ley de Hooke):
 $$\vec{F} = -k \vec{x} \implies \omega = \sqrt{\frac{k}{m}}$$
 
@@ -108,7 +110,7 @@ $$T = 2\pi \sqrt{\frac{m}{k}}$$
 
 ---
 
-### Péndulo Simple
+#### Péndulo Simple
 Consiste en una masa puntual suspendida de un hilo de longitud $L$. Para ángulos pequeños ($\theta \le 10^\circ$), el arco se aproxima a una línea recta y el movimiento es un MAS con periodo:
 
 $$T = 2 \pi \sqrt{\frac{L}{g}}$$
@@ -121,7 +123,7 @@ $$T = 2 \pi \sqrt{\frac{L}{g}}$$
 
 ---
 
-### Péndulo Físico
+#### Péndulo Físico
 Cualquier cuerpo rígido que oscila alrededor de un punto de suspensión fijo. Usando dinámica de rotación y considerando el momento de inercia ($I$) respecto al punto de suspensión:
 
 $$T = 2 \pi \sqrt{\frac{I}{mgb}}$$
@@ -135,7 +137,7 @@ Donde $b$ es la distancia desde el eje de rotación hasta el centro de masa del 
 :::
 ---
 
-## 5. Oscilaciones Amortiguadas
+### Oscilaciones Amortiguadas
 En los sistemas oscilantes reales, las fuerzas de fricción disipan la energía mecánica, provocando que la amplitud disminuya progresivamente hasta que el movimiento se detiene.
 
 :::{figure} https://github.com/jnolorbe/fisica2/blob/main/figuras/s4_maa01.jpg
@@ -145,7 +147,7 @@ En los sistemas oscilantes reales, las fuerzas de fricción disipan la energía 
 **Figura 5.** Sistemas oscilantes amortiguados con agua, aceite y aire 
 :::
 
-### Sistma Masa - Resorte Amortiguado
+#### Sistema Masa - Resorte Amortiguado
 El caso más común es un oscilador sujeto a una fuerza viscosa proporcional a la velocidad: $\vec{f} = -c\vec{v}$, donde $c$ es el coeficiente de amortiguamiento.
 
 :::{figure} https://github.com/jnolorbe/fisica2/blob/main/figuras/s4_maa02.png
@@ -180,7 +182,7 @@ Donde:
 
 ---
 
-## 6. Oscilaciones Forzadas y Resonancia
+### Oscilaciones Forzadas y Resonancia
 Cuando un sistema amortiguado se somete a una fuerza externa periódica $F = F_o \cos(\omega_F t)$, el movimiento puede mantenerse activo. Tras una fase transitoria, el sistema entra en una **fase estacionaria** donde oscila con la frecuencia de la fuerza externa ($\omega_F$).
 
 $$x = A \, sen (\omega_F t - \delta)$$
@@ -195,4 +197,44 @@ El ángulo de fase:
 
 $$tan \, \delta = \frac{\omega_F^2 - \omega_o^2}{2 \gamma \omega_F}$$
 
+---
+
+## III. Actividades para el Portafolio Digital 📓
+
+### Desafío 1
+
+Un sensor de posición en un sistema de control registra que un actuador de masa $0,20 \text{ kg}$ realiza un movimiento armónico simple. La señal capturada (en metros) sigue la función:  
+$$\vec{x}(t) = 0,45 \operatorname{sen}(0,32 t - 0,95)$$
+
+* **Reto A:** Determine los parámetros operativos del sistema: amplitud, frecuencia angular, ángulo de fase y el periodo de oscilación.  
+* **Reto B:** Calcule el estado cinemático inicial (posición, velocidad y aceleración en $t = 0$).  
+* **Análisis Crítico:** Si el sensor de energía detecta una energía cinética de $1,7 \text{ mJ}$ cuando la posición es $x = -0,20 \text{ m}$, ¿cuál es la energía mecánica total? ¿Es consistente este valor con la amplitud máxima registrada?
+---
+
+### Desafío 2 
+
+En una subestación, se deben instalar soportes elásticos para aislar las vibraciones de un equipo de masa $M$. Se dispone de tres resortes con constantes elásticas $2K$, $3K$ y $6K$.
+
+* **Configuración en Serie:** Determine el periodo de oscilación si los tres resortes se conectan uno tras otro.  
+* **Configuración en Paralelo:** Si se decide cambiar el diseño por tres resortes **idénticos** de constante $K$ colocados en paralelo para soportar una barra horizontal de masa $M$, ¿cuál sería el nuevo periodo?  
+* **Reto:** Demuestre analíticamente cuál configuración es más eficiente para aplicaciones que requieren una frecuencia de oscilación más alta.
+---
+
+### Desafío 3
+
+Un disco delgado y uniforme de masa $M$ y radio $R$ (parte de un mecanismo de embrague) se suspende de un clavo para pruebas de balanceo a una distancia $b$ de su centro geométrico.
+
+* **Especificaciones:** El sistema oscila bajo el modelo de péndulo físico para ángulos pequeños.  
+* **Reto:** Encuentre la expresión del periodo $T$ en función de $b$ y determine la distancia exacta $b$ (en términos de $R$) que minimiza dicho periodo.  
+* **Análisis Crítico:** ¿Por qué un ingeniero preferiría diseñar un sistema oscilante que trabaje en su punto de periodo mínimo?
+---
+
+### Desafío 4
+
+Se utiliza una balanza de torsión para determinar las propiedades elásticas de una probeta metálica en el laboratorio de materiales. El sistema consiste en una varilla delgada que sostiene un disco pesado en su extremo inferior.
+
+* **Especificaciones Técnicas:** * Varilla (probeta): Longitud $l$ y diámetro $d$.
+    * Disco oscilante: Masa $M$ y radio $R$.
+* **Reto:** Determine la expresión matemática para el periodo de oscilación del sistema. Considere que el torque de restitución depende del módulo de rigidez del material ($G$) y las dimensiones de la varilla.
+* **Análisis Crítico:** ¿Cómo afectaría al periodo de oscilación si se duplica el diámetro de la varilla manteniendo constante la masa del disco? Justifique basándose en la relación entre el diámetro y la constante de torsión.
 ---

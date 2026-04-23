@@ -1,6 +1,8 @@
 # Sesión 1: Esfuerzos Normales
 
-## Introducción
+## I. Fundamento Teórico
+
+### Introducción
 Para estudiar las propiedades mecánicas de los materiales, tales como elásticidad y plasticidad, se utilizan probetas o barras que son sometidas a fuerzas de tracción o compresión, hasta que se produce la rotura de la probeta. Este ensayo mide la resistencia de un material a una fuerza estática o aplicada lentamente.
 
 La elasticidad es la propiedad mecánica de ciertos materiales de sufrir deformaciones reversibles debido a la acción de fuerzas y de recuperar su forma original luego de que estas fuerzas se supriman.
@@ -17,7 +19,7 @@ Video 1.  Ensayo de tracción de una probeta de cobre
 ```
 
 ---
-## Esfuerzos Normales
+### Esfuerzos Normales
 
 Cuando aplicas una fuerza a un objeto, este experimenta una tensión interna que contrarresta la fuerza externa. Esta tensión interna por unidad de área se conoce como esfuerzo. El esfuerzo normal se produce cuando la fuerza aplicada es perpendicular a la superficie del material.
 
@@ -48,7 +50,7 @@ Figura 1.  Esfuerzo normal: (a) tracción y (b) compresión
 ```
 
 
-## Ley de Hooke
+### Ley de Hooke
 El esfuerzo normal de tracción o compresión sobre una varilla, cable o barra sólida es directamente proporcional a la deformación unitaria. La constante de proporción se denomina Módulo de Elasticidad o Módulo de Young, el cuál es propio de cada material. 
 
 $$
@@ -64,7 +66,7 @@ $E =$ Módulo de elásticidad (Pa)
 $\delta =\frac{\Delta L}{L}=$ deformación unitaria o relativa (%)
 
 
-## Curva esfuerzo vs. deformación
+### Curva esfuerzo vs. deformación
 
 Para conocer las propiedades elásticas de un sólido se utilizan máquinas de ensayo de tracción que miden la deformación longitudinal unitaria de una probeta en función del esfuerzo de tracción aplicado.
 
@@ -75,7 +77,6 @@ Para conocer las propiedades elásticas de un sólido se utilizan máquinas de e
 :class: centered-caption
 Figura 2.  Máquina de ensayo de tracción universal
 ```
-
 
 ```{figure} http://personales.upv.es/~avicente/curso/unidad2/FIG2-3.jpg
 :alt: Máquina de ensayo de tracción
@@ -106,7 +107,7 @@ En la siguiente Figura se compara la gráfica de la tensión vs deformación de 
 Figura 5.  Curva esfuerzo - deformación de un material fragil y otro ductil
 :::
 ---
-## Módulo de elasticidad
+### Módulo de elasticidad
 En la siguiente tabla se muestra los valores del módulo de elasticidad de algunos materiales.
 
 <table border="1">
@@ -149,7 +150,7 @@ En la siguiente tabla se muestra los valores del módulo de elasticidad de algun
 </tr>
 </table>
 
-## Deformación transversal
+### Deformación transversal
 
 Cuando un material se deforma en una dirección determinada, ocasiona deformaciones en las direcciones transversales. Así por ejemplo cuando la probeta es sometida a una tracción longitudinal el diámetro se reduce. La deformación transversal unitaria es proporcional a la deformación longitudinal unitaria.
 
@@ -165,14 +166,14 @@ $\delta_{L}$ = Deformación longitudinal
 
 El signo negativo en la ecuación indica que mientras la deformación longitudﬁnal aumenta, la deformación transversal disminuye, o viceversa. 
 
-:::{figure} https://en.wikipedia.org/wiki/Poisson%27s_ratio#/media/File:PoissonRatio.svg.png
+:::{figure}  https://github.com/jnolorbe/fisica2/blob/main/figuras/500px-PoissonRatio.png
 :alt: coeficiente de poisson
 :width: 50%
 :align: center
 Figura 6.  Deformación transversal de una varilla
 :::
 
-## Coeficiente de Poisson
+### Coeficiente de Poisson
 En la siguiente tabla se muestra los valores del coeficiente de Poisson de algunos materiales.
 
 <table border="1">
@@ -207,7 +208,7 @@ En la siguiente tabla se muestra los valores del coeficiente de Poisson de algun
 </tr>
 </table>
 
-## Módulo de compresibilidad
+### Módulo de compresibilidad
 
 Considera un bloque rectangular sujeto a fuerzas de compresión normal a toda sus caras, digamos en las direcciones de los ejes  X, Y y Z, como se muestra en la siguiente figura.
 
@@ -240,10 +241,10 @@ De aqui se define el módulo de compresibiliad K.
 
 $$K \,=\,\frac{E}{3(1- 2\mu)}$$
 
+## II. Problemas Resueltos
 
-## Problemas Resueltos
----
-```{admonition} Problema 1: Diseño de un cable conductor para una línea de transmisión 💡
+### Problema 1: Cable conductor 💡
+```{admonition} Diseño de un cable 
 :class: important
 Se está diseñando una línea de transmisión de alta tensión que debe cruzar un valle. Para la selección del material, el equipo de ingenieros ha evaluado dos aleaciones conductoras: una de Cobre (Cu) y otra de Aluminio (Al), cuyas curvas de esfuerzo vs. deformación se muestran en la Figura.
 
@@ -251,7 +252,7 @@ Se está diseñando una línea de transmisión de alta tensión que debe cruzar 
 :alt: curva esfuerzo deformacion cobre y aluminio
 :width: 50%
 :align: center
-Figura 8. Curva esfuerzo deformación Cobre y Aluminio ([](https://doi.org/10.3390/ma14216305) )
+Figura 8. Curva esfuerzo deformación Cobre y Aluminio
 :::
 
 - a) Calcula el Módulo de Young para cada material y determina cuál de los dos materiales es más elástico.
@@ -290,7 +291,8 @@ $\Delta L = 1.2 \text{ m}$
 ```
 ---
 
-```{admonition} Problema 2: Cable compuesto 💡
+### Problema 2: Cable compuesto 💡
+```{admonition} Deformación de un cable compuesto 
 :class: important
 Una varilla de cobre de longitud $100 \text{ cm}$ y de sección $2 \text{ cm}^2$ esta sujeta por uno de sus extremos a otra varilla de acero dulce de longitud $L$ y de sección $4 \text{ cm}^2$. Esta varilla compuesta se somete a una tracción de $30 \text{ kN}$ en sus extremos. Si la deformación longitudinal de cada varilla es la misma, deducir la longitud $L$ de la varilla de acero dulce. ($E_{cobre} = 130 \text{ GPa}$, $E_{acero} = 270 \text{ GPa}$).
 ```
@@ -310,15 +312,88 @@ $\frac{100 \text{ cm}}{(2 \text{ cm}^{2})(130 \text{ GPa})}=\frac{L}{(4 \text{ c
 
 $L=320 \text{ cm}$
 
-
 ```
 ---
 
+## III. Actividades para el Portafolio Digital 📓
 
- ## Referencias:
+### Desafío 1 
+**Diseño de Soportes para Líneas de Transmisión (Esfuerzo Normal)**
+**Contexto:** Se está evaluando el uso de tubos de acero huecos para actuar como soportes verticales en una subestación. El tubo debe resistir una carga de tracción axial de $400 \text{ kN}$ generada por el tensado de los conductores.
+
+* **Especificaciones:** El diámetro interior del tubo es de $100 \text{ mm}$.
+* **Limitación Técnica:** Para garantizar la seguridad estructural, el esfuerzo normal no debe superar los $120 \text{ MPa}$.
+* **Reto:** Determine el diámetro exterior mínimo del tubo necesario para cumplir con la normativa.
+* **Análisis Crítico:** ¿Cómo afectaría a la seguridad del poste si el material presentara porosidades internas que redujeran el área efectiva de la sección transversal en un 5%?
+---
+
+### Desafío 2 
+**Compresión en Núcleos de Transformadores (Materiales Compuestos)**
+**Contexto:** En el ensamblaje de un núcleo de potencia, se utiliza una barra de acero de $50 \text{ mm}$ de diámetro protegida por una carcasa de hierro fundido de $5 \text{ mm}$ de espesor. El conjunto tiene una longitud total de $2 \text{ m}$.
+
+* **Situación:** Durante el ajuste mecánico, el conjunto se somete a una carga de compresión.
+* **Reto:** Deduzca la carga total $P$ necesaria para comprimir la barra compuesta exactamente $0.8 \text{ mm}$.
+* **Propiedades de los Materiales:**
+    * Acero: $E = 200 \text{ GPa}$
+    * Hierro Fundido: $E = 100 \text{ GPa}$
+* **Análisis Crítico:** Si la carga se aplica de forma no uniforme, ¿cuál de los dos materiales corre mayor riesgo de alcanzar su límite elástico primero?
+---
+
+### Desafío 3
+**Estabilidad de Cargas Pesadas (Sistemas Indeterminados)**
+**Contexto:** Un bloque rígido de masa $M$ debe ser soportado simétricamente por tres varillas verticales para asegurar que permanezca nivelado.
+
+:::{figure} https://mathalino.com/sites/default/files/images/236-block-supported-by-three-rods.jpg
+:alt: tres varillas
+:width: 50%
+:align: center
+:::
+
+* **Configuración:**
+    * **2 Varillas de Cobre:** Área = $900 \text{ mm}^2$, $E = 120 \text{ GPa}$, $\sigma_{adm} = 70 \text{ MPa}$.
+    * **1 Varilla de Acero (Central):** Área = $1200 \text{ mm}^2$, $E = 200 \text{ GPa}$, $\sigma_{adm} = 140 \text{ MPa}$.
+* **Reto:** Calcule la masa máxima $M$ (en kg) que puede soportarse sin que ninguna de las varillas falle.
+* **Reflexión:** Dado que el bloque es rígido, las deformaciones en las tres varillas deben ser iguales ($\delta_c = \delta_a$). Use esta condición de compatibilidad para resolver el sistema.
+---
+
+### Desafío 4
+
+**Análisis de Desplazamiento en Sensores de Nivel**
+**Contexto:** Una barra rígida $AB$ se utiliza para transmitir el movimiento a dos sensores verticales. La barra está inicialmente horizontal. Se aplica una carga $P = 50 \text{ kN}$ en la posición indicada en la Figura.
+
+:::{figure} https://mathalino.com/sites/default/files/images/213-given.jpg
+:alt: dos varillas verticales
+:width: 50%
+:align: center
+:::
+
+* **Situación:** Las varillas de soporte tienen diferentes propiedades elásticas y longitudes.
+* **Reto:** Deduzca el movimiento vertical (descenso) del punto donde se aplica la carga $P$.
+* **Aumentación con IA:** Ingrese la geometría del problema en una IA y pregunte: *"¿En qué punto de la barra AB debería colocarse la carga P para que el descenso sea uniforme y la barra permanezca horizontal?"*. Analice la importancia del "centro de rigidez" en este escenario.
+---
+
+### Desafío 5
+**Evaluación de Fallas en Actuadores Multi-Etapa**
+**Contexto:** Un actuador lineal está compuesto por tres secciones unidas: aluminio, acero y bronce. En el sistema de automatización, se aplican cargas axiales en diferentes puntos debido a la resistencia de los mecanismos internos (Figura P-108).
+
+:::{figure} https://mathalino.com/sites/default/files/reviewer-strength/01-stress/108-composite-bar-different-area.gif
+:alt: barra compuesta aluminio acero bronce
+:width: 50%
+:align: center
+:::
+
+* **Límites de Esfuerzo:**
+    * Acero: $140 \text{ MPa}$
+    * Aluminio: $90 \text{ MPa}$
+    * Bronce: $100 \text{ MPa}$
+* **Reto:** Deduzca el valor máximo de la carga de referencia $P$ (en kN) para que ninguna sección supere su esfuerzo admisible.
+* **Metacognición:** Identifique el tramo con el menor factor de seguridad. Si tuviera que optimizar el diseño aumentando el área de una sola sección para permitir una carga $P$ mayor, ¿cuál elegiría?
+---
+
+## IV. Referencias
+
  - https://www.doitpoms.ac.uk/tlplib/mechanical_properties/tensile.php
  - https://www.youtube.com/embed/XTfMkBiUXOA
  - https://courses.lumenlearning.com/suny-osuniversityphysics/chapter/12-3-stress-strain-and-elastic-modulus/
- - https://github.com/jnolorbe/fisica2/blob/main/figuras/curvaesfuerzodeformacion.jpg
-
- 
+ - https://www.mdpi.com/1996-1944/14/21/6305#
+ - https://mathalino.com

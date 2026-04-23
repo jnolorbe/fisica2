@@ -1,6 +1,8 @@
 # Sesión 2: Esfuerzos Cortantes
 
-## Introducción
+## I. Fundamento Teórico
+
+### Introducción
 Los esfuerzos cortantes o de cizalladura son la principal causa de la rotura de pines, remaches, tornillos, entre otras piezas mecánicas utilizadas para sostener o unir piezas. En el siguiente video puedes ver un test de esfuerzo cortante del pegamento que une dos laminas metálicas.
 
 ```{iframe} https://www.youtube.com/embed/z-cKD2LgEJk?si=lRlMdSqGCfwx3JA2
@@ -9,7 +11,7 @@ Los esfuerzos cortantes o de cizalladura son la principal causa de la rotura de 
 Video 1.  Ensayo de esfuerzo cortante de un pegamento
 ```
 
-## Esfuerzo cortante
+### Esfuerzo cortante
 
 Las fuerzas que actúan sobre un cuerpo pueden descomponerse tanto en una dirección normal como en una dirección tangente o cortante al área sobre la que actúa, originando esfuerzos normales y esfuerzos cortantes respectivamente, tal como se observa en la figura.
 
@@ -23,7 +25,7 @@ El esfuerzo cortante $\sigma_c$ es la fuerza cortante por unidad de área y se m
 
 $$\sigma_c =\frac{dF_t}{dA}$$
 
-## Ley de Hooke para la cizalla
+### Ley de Hooke para la cizalla
 
 Considera un bloque formado por laminas o planos paralelos, se aplican un par de fuerzas iguales y opuestas en los planos de arriba y abajo, estas fuerzas producen esfuerzos cortantes que deforman el bloque, haciendo que los planos deslicen unos sobre el otro. El desplazamiento horizontal máximo que experimenta el plano de arriba con respecto al plano de abajo es proporcional al esfuerzo cortante.
 
@@ -47,9 +49,10 @@ $$\sigma_c =G \, \phi $$
 :align: center
 Figura 2.  Esfuerzo cortante y deformación
 ```
-
-## Problemas Resueltos
 ---
+
+## II. Problemas Resueltos
+
 ```{admonition} Problema 1: Análisis de Esfuerzo Cortante en Uniones Asimétricas 💡
 :class: important
 
@@ -73,7 +76,7 @@ Considerando que el material de los pernos tiene un **esfuerzo de fluencia corta
 ```{admonition} Solución
 :class: dropdown hint
 
-### 1. Análisis de la Sección Crítica
+**1. Análisis de la Sección Crítica**
 Para que la unión esté en equilibrio, la fuerza total de tracción $P$ debe ser transmitida íntegramente a través de ambas secciones de pernos. 
 
 * En la **sección de 4 pernos**, cada perno soporta una fuerza $F_4 = \frac{P}{4}$.
@@ -81,19 +84,19 @@ Para que la unión esté en equilibrio, la fuerza total de tracción $P$ debe se
 
 Dado que el esfuerzo cortante es $\tau = \frac{F}{A}$ y el área $A$ es la misma para todos, el esfuerzo en los pernos de la sección inferior es el doble ($\tau_2 = 2\tau_4$). Por lo tanto, **la falla ocurrirá inevitablemente en la sección de 2 pernos**.
 
-### 2. Cálculo de la Carga Máxima ($P_{max}$)
+**2. Cálculo de la Carga Máxima ($P_{max}$)**
 
-**1. Área de la sección transversal de un perno ($A$):**
+**Área de la sección transversal de un perno ($A$):**
 Convertimos el diámetro a metros ($d = 0.0127 \text{ m}$):
 
 $A = \frac{\pi \cdot d^2}{4} = \frac{\pi \cdot (0.0127 \text{ m})^2}{4} \approx 1.2667 \times 10^{-4} \text{ m}^2$
 
-**2. Condición de falla en la sección inferior ($n = 2$):**
+**Condición de falla en la sección inferior ($n = 2$):**
 El esfuerzo actuante no debe superar el esfuerzo de fluencia ($\tau \leq \tau_{f}$):
 
 $\tau_{f} = \frac{P_{max}}{n \cdot A}$
 
-**3. Despeje de la carga $P$:**
+**Despeje de la carga $P$:**
 
 $P_{max} = \tau_{f} \cdot (2 \cdot A)$
 
@@ -236,4 +239,31 @@ Utilizamos la relación: $\phi = \frac{32 T L}{G \pi d^4}$
    $\phi_E = \phi_{B,acop} + \phi_{B,tor} = 0.0238 + 0.0189 = \mathbf{0.0427 \text{ rad } (\approx 2.45^\circ)}$
 ```
 ---
-*Material preparado para Física 2 - FIEE UNAC*
+
+##  III. Actividades para el Portafolio Digital 📓
+
+### Desafío 1
+Se tiene una varilla homogénea de $100 \text{ cm}$ de longitud y una masa de $10 \text{ kg}$, la cual actúa como un travesaño en una estructura de soporte. Está sujeta en sus extremos por dos cables, A y B, de igual longitud. El cable A tiene una sección de $1 \text{ mm}^2$ y el cable B de $2 \text{ mm}^2$. Sus módulos de Young son $Y_A = 20 \times 10^3 \text{ kg/mm}^2$ e $Y_B = 15 \times 10^3 \text{ kg/mm}^2$.
+* **Reto:** 
+- Determine el punto exacto de la barra donde debe suspenderse un peso $W$ para que se produzcan **iguales esfuerzos** de tracción en ambos cables.
+- ¿En qué punto de la barra debe suspenderse el peso $W$ para que ambos cables experimenten **iguales deformaciones** (manteniendo la barra horizontal)?
+* **Análisis Crítico:** Si el peso $W$ se desplaza hacia el centro de la barra, ¿cuál de los cables alcanzaría primero su límite elástico considerando que tienen secciones transversales diferentes?
+---
+
+### Desafío 2
+Una barra de $10 \, kg$, cuya sección es $4 \, cm^2$ tiene $1 \, m$ de longitud cuando esta en reposo y horizontal. Si la barra se deja caer verticalmente con una aceleración de $8 \, m/s^2$. 
+* **Reto:** Deducir el esfuerzo de compresión en diferente secciones de la barra.
+* **Análisis Crítico:** Si al golpear se deforma en 1% de su longitud ¿Con qué fuerza golpea el piso?
+---
+
+### Desafío 3
+Se aplican fuerzas de compresión a dos caras opuestas de un bloque rectangular. La disminución relativa de la longitud del bloque es de $0.001$ y la disminución relativa de volumen es $0.0005$.
+* **Reto:**  Calcúlar el coeficiente de Poisson del material de que esta hecho el cubo.
+* **Análisis Crítico:** ¿Cómo variaría el resultado si se considera que el bloque rectangular esta siendo comprimido por sus seis caras con igual fuerza?.
+---
+
+### Desafío 4
+Un eje de acero ($G = 8,4 \times 10^{10} \text{ Pa}$) de $1,5 \text{ m}$ de longitud debe transmitir un torque de $10 \text{ kN}\cdot\text{m}$.
+* **Reto:** Determine el diámetro mínimo que debe tener el eje para que el ángulo de torsión no exceda de $1^\circ$ en toda su longitud.
+* **Análisis Crítico:** En una aplicación industrial, si el eje presenta una vibración que aumenta el torque efectivo en un 20%, ¿cuál sería el nuevo ángulo de torsión y cómo afectaría esto a la alineación del sistema acoplado?
+---
