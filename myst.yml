@@ -20,6 +20,7 @@ project:
         - file: sesiones/sesion01.md
         - file: sesiones/sesion02.md
         - file: sesiones/sesion03.md
+        - file: sesiones/sesion04.md
     - title: Unidad 2
       children:
         - file: sesiones/sesion05.md
