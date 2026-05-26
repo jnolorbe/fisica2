@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autoevaluación Interactiva - Física 2 FIEE UNAC</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuración e Importación de MathJax -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        .option-btn { transition: all 0.2s ease-in-out; }
+        body { background-color: #f8fafc; }
+    </style>
+</head>
+<body class="p-3 md:p-6 font-sans text-slate-800 antialiased">
+
+    <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-md overflow-hidden border border-slate-100">
+        <!-- Encabezado de la FIEE UNAC -->
+        <div class="bg-gradient-to-r from-blue-900 to-indigo-950 p-6 text-white relative">
+            <div class="absolute top-4 right-4 text-xs font-semibold bg-blue-800/50 px-3 py-1 rounded-full uppercase tracking-wider border border-blue-400/30">
+                FIEE UNAC
+            </div>
+            <h1 class="text-xl md:text-2xl font-bold text-white m-0">Examen de Autodiagnóstico</h1>
+            <p class="text-blue-200 mt-1 text-xs md:text-sm">Evaluación de capacidades y pensamiento crítico en Física 2</p>
+        </div>
+
+        <!-- Barra de Progreso Dinámica -->
+        <div class="bg-slate-100 h-2 w-full">
+            <div id="progress-bar" class="bg-blue-600 h-2 w-0 transition-all duration-300"></div>
+        </div>
+
+        <!-- Contenedor de la Aplicación -->
+        <div class="p-6 md:p-8">
+            
+            <!-- Pantalla de Bienvenida -->
+            <div id="welcome-screen" class="text-center py-6">
+                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <h2 class="text-xl md:text-2xl font-bold mb-2 text-slate-900">¿Listo para medir tus conocimientos?</h2>
+                <p class="text-slate-600 text-sm mb-6 max-w-md mx-auto">Consta de 10 problemas con enfoque analítico (Sesiones 01 - 07). Al seleccionar una opción, se desplegará la justificación física detallada del problema.</p>
+                <button onclick="startQuiz()" class="bg-blue-900 hover:bg-blue-800 text-white font-semibold py-2.5 px-6 rounded-xl shadow-md transition-all cursor-pointer">
+                    Comenzar Autoevaluación
+                </button>
+            </div>
+
+            <!-- Pantalla del Cuestionario -->
+            <div id="quiz-screen" class="hidden">
+                <div class="flex justify-between items-center mb-6 text-xs md:text-sm text-slate-500 font-medium">
+                    <span>Pregunta <span id="current-question-num">1</span> de 10</span>
+                    <span id="category-badge" class="bg-blue-50 text-blue-800 px-3 py-1 rounded-full text-xs font-semibold">Elasticidad</span>
+                </div>
+
+                <div id="question-text" class="text-sm md:text-base font-semibold text-slate-900 mb-6 leading-relaxed"></div>
+
+                <!-- Caja de Sugerencia (Pista) -->
+                <div id="hint-box" class="bg-amber-50 border-l-4 border-amber-500 p-4 mb-6 rounded-r-lg text-xs md:text-sm text-amber-900 hidden">
+                    <div class="flex">
+                        <svg class="w-5 h-5 text-amber-500 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+                        </svg>
+                        <div>
+                            <span class="font-bold">Sugerencia de análisis:</span> <span id="hint-text"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Opciones de Respuesta -->
+                <div id="options-container" class="space-y-3 mb-6"></div>
+
+                <!-- Caja de Retroalimentación Justificada -->
+                <div id="feedback-box" class="p-5 rounded-xl border mb-6 hidden text-xs md:text-sm">
+                    <h4 class="font-bold mb-1 flex items-center">
+                        <span id="feedback-icon" class="mr-2"></span>
+                        <span id="feedback-title"></span>
+                    </h4>
+                    <p id="feedback-text" class="leading-relaxed mt-2"></p>
+                </div>
+
+                <!-- Botones de Navegación -->
+                <div class="flex justify-between items-center border-t border-slate-100 pt-4">
+                    <button onclick="toggleHint()" id="btn-hint" class="text-slate-500 hover:text-blue-900 font-medium text-xs md:text-sm flex items-center transition-colors bg-transparent border-0 cursor-pointer">
+                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364.364l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                        Ver Pista
+                    </button>
+                    <button onclick="nextQuestion()" id="btn-next" class="bg-blue-900 hover:bg-blue-800 text-white text-xs md:text-sm font-semibold py-2 px-5 rounded-xl transition-all disabled:opacity-50 hidden cursor-pointer" disabled>
+                        Siguiente Pregunta
+                    </button>
+                </div>
+            </div>
+
+            <!-- Pantalla de Resultados -->
+            <div id="results-screen" class="hidden text-center py-6">
+                <h3 class="text-2xl font-bold text-slate-900 mb-2">¡Autoevaluación Completada!</h3>
+                <p class="text-slate-500 text-sm mb-6">Nivel de logro en el dominio de las sesiones 01 - 07</p>
+                
+                <div class="relative w-36 h-36 mx-auto mb-6">
+                    <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+                        <path class="text-slate-100" stroke-width="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                        <path id="score-circle" class="text-green-500 transition-all duration-1000 ease-out" stroke-dasharray="0, 100" stroke-width="3" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                    </svg>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center">
+                        <span id="score-text" class="text-3xl font-extrabold text-slate-900">0/10</span>
+                        <span class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold mt-0.5">Aciertos</span>
+                    </div>
+                </div>
+
+                <div id="performance-feedback" class="max-w-md mx-auto mb-6 p-4 rounded-xl border text-left text-sm"></div>
+                <button onclick="restartQuiz()" class="bg-blue-900 hover:bg-blue-800 text-white font-semibold py-2.5 px-6 rounded-xl shadow-md transition-all cursor-pointer">
+                    Volver a Intentar
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Banco de preguntas de Física 2 FIEE UNAC (Doble escape en LaTeX para evitar errores de compilación JS)
+        const quizData = [
+            {
+                category: "Elasticidad (Torsión)",
+                question: "En un eje cilíndrico de cobre de diámetro $d$ sometido a torsión pura por un torque constante $T$, si se duplica el diámetro del eje ($d \\\\to 2d$), ¿cómo cambia el esfuerzo cortante máximo de cizalladura ($\\tau_{\\\\text{máx}}$) en el material?",
+                hint: "Recuerda que para torsión en ejes macizos, el esfuerzo máximo está dado por la relación matemática $\\tau_{\\\\text{máx}} = \\frac{16 T}{\\pi d^3}$. Analiza el exponente del diámetro.",
+                options: [
+                    { text: "Se reduce a la octava parte ($1/8$ de su valor original).", isCorrect: true, rationale: "El esfuerzo cortante máximo por torsión es inversamente proporcional al cubo del diámetro del eje, de modo que al duplicar el diámetro ($2^3$), el esfuerzo disminuye en un factor de 8." },
+                    { text: "Se reduce a la mitad ($1/2$ de su valor original).", isCorrect: false, rationale: "Esta suposición ignora la distribución transversal de esfuerzos y el hecho de que el momento polar de inercia varía con el diámetro a la cuarta potencia." },
+                    { text: "Se reduce a la cuarta parte ($1/4$ de su valor original).", isCorrect: false, rationale: "Este valor asume incorrectamente una relación inversamente proporcional al área transversal ($d^2$), lo cual solo se cumple para cizalladura simple directa y no para torsión." },
+                    { text: "Se duplica.", isCorrect: false, rationale: "El esfuerzo cortante disminuye al ensanchar el eje cilíndrico debido al aumento del momento polar de inercia, facilitando la resistencia contra la torsión aplicada." }
+                ]
+            },
+            {
+                category: "Elasticidad (Longitudinal)",
+                question: "Un cable de acero de longitud $L = 2\\text{ m}$ y sección transversal $A = 5\\text{ mm}^2$ se estira elásticamente bajo una fuerza de tracción $F = 1\\text{ kN}$. Si el módulo de Young del acero es $E = 200\\text{ GPa}$, ¿cuánto es la deformación longitudinal absoluta ($\\Delta L$) experimentada por el cable?",
+                hint: "Usa la relación de la teoría de elasticidad longitudinal: $\\Delta L = \\frac{F L}{A E}$. Asegúrate de convertir el área de $\\text{mm}^2$ a $\\text{m}^2$ ($1\\text{ mm}^2 = 10^{-6}\\text{ m}^2$).",
+                options: [
+                    { text: "$2\\text{ mm}$", isCorrect: true, rationale: "Aplicando la fórmula $\\Delta L = \\frac{F L}{A E}$ con las unidades en el S.I. ($F = 10^3\\text{ N}$, $A = 5 \\times 10^{-6}\\text{ m}^2$ y $E = 2 \\times 10^{11}\\text{ Pa}$), obtenemos exactamente $0.002\\text{ m}$." },
+                    { text: "$0.2\\text{ mm}$", isCorrect: false, rationale: "Este resultado surge si se comete un error en el factor de escala de las unidades al convertir el área de milímetros cuadrados a metros cuadrados." },
+                    { text: "$20\\text{ mm}$", isCorrect: false, rationale: "Este valor asume una deformación unitaria extremadamente alta del $1\\%$, que superaría con creces el límite de fluencia elástico del acero estructural convencional." },
+                    { text: "$10\\text{ mm}$", isCorrect: false, rationale: "Este valor no se condice con el cálculo matemático derivado de la Ley de Hooke generalizada para cables tensados en régimen elástico." }
+                ]
+            },
+            {
+                category: "Movimiento Armónico Simple",
+                question: "Un bloque de masa $m = 0.5\\text{ kg}$ acoplado a un resorte ideal de constante elástica $k = 200\\text{ N/m}$ oscila describiendo un M.A.S. Si la velocidad máxima que alcanza el bloque es $v_{\\\\text{máx}} = 2\\text{ m/s}$, ¿cuál es la amplitud ($A$) de la oscilación?",
+                hint: "Determina primero la frecuencia angular del sistema mediante la ecuación $\\omega = \\sqrt{\\frac{k}{m}}$ y luego aplica la relación cinemática de la velocidad máxima.",
+                options: [
+                    { text: "$10\\text{ cm}$", isCorrect: true, rationale: "La frecuencia angular es $\\omega = \\sqrt{k/m} = \\sqrt{200/0.5} = 20\\text{ rad/s}$. Como $v_{\\\\text{máx}} = A \\omega$, entonces $A = 2 / 20 = 0.1\\text{ m}$, equivalente a $10\\text{ cm}$." },
+                    { text: "$5\\text{ cm}$", isCorrect: false, rationale: "Este valor subestima a la mitad el rango de oscilación del bloque debido a una incorrecta simplificación de la frecuencia angular del sistema masa-resorte." },
+                    { text: "$20\\text{ cm}$", isCorrect: false, rationale: "Este resultado se obtiene si se multiplica por error la velocidad máxima por la frecuencia angular en lugar de realizar la división correspondiente." },
+                    { text: "$1\\text{ cm}$", isCorrect: false, rationale: "Una amplitud tan pequeña implicaría una energía mecánica muy baja que no alcanzaría los $2\\text{ m/s}$ de velocidad máxima para esta masa y rigidez de resorte." }
+                ]
+            },
+            {
+                category: "Oscilaciones Forzadas",
+                question: "En un sistema oscilatorio forzado y amortiguado por fuerzas viscosas débiles, ¿en qué condición física específica se produce el fenómeno de la resonancia de amplitud?",
+                hint: "La resonancia mecánica involucra una coincidencia de ritmos temporales que optimiza el acoplamiento energético entre la excitación y la respuesta natural.",
+                options: [
+                    { text: "Cuando la frecuencia angular de la fuerza externa impulsora es aproximadamente igual a la frecuencia angular natural del oscilador.", isCorrect: true, rationale: "En esta condición, la transferencia de energía mecánica desde la fuente externa hacia el sistema oscilante es óptima, maximizando la amplitud de oscilación." },
+                    { text: "Cuando la constante de amortiguamiento viscoso se incrementa hasta superar el régimen crítico.", isCorrect: false, rationale: "Un aumento del amortiguamiento deprime la amplitud de las oscilaciones y destruye la selectividad de la resonancia, impidiendo grandes amplitudes." },
+                    { text: "Cuando la amplitud de la fuerza impulsora disminuye de forma exponencial con el transcurso del tiempo.", isCorrect: false, rationale: "La fuerza impulsora forzada debe ser periódica y continua en el tiempo para poder sostener el estado de oscilación resonante." },
+                    { text: "Cuando la energía mecánica total se disipa de manera instantánea y completa en forma de calor.", isCorrect: false, rationale: "Si la disipación fuera infinita, no habría movimiento oscilatorio posible, puesto que el sistema entraría en un estado de amortiguamiento crítico o sobreamortiguado inmediato." }
+                ]
+            },
+            {
+                category: "Ondas Mecánicas",
+                question: "Una cuerda metálica uniforme de longitud $L = 4\\text{ m}$ y masa total $m = 100\\text{ g}$ está sometida a una fuerza de tensión constante $T = 160\\text{ N}$. ¿Cuál es la velocidad de propagación ($v$) de un pulso de onda mecánica transversal a través de ella?",
+                hint: "Calcula primero la densidad lineal de masa ($\\mu = m/L$) en kilogramos por metro y aplica la Ley de Taylor para ondas transversales: $v = \\sqrt{\\frac{T}{\\mu}}$.",
+                options: [
+                    { text: "$80\\text{ m/s}$", isCorrect: true, rationale: "La densidad lineal de masa es $\\mu = m/L = 0.1\\text{ kg}/4\\text{ m} = 0.025\\text{ kg/m}$. Aplicando la fórmula de Taylor, $v = \\sqrt{T/\\mu} = \\sqrt{160/0.025} = \\sqrt{6400} = 80\\text{ m/s}$." },
+                    { text: "$40\\text{ m/s}$", isCorrect: false, rationale: "Este valor se genera si se omite convertir de forma adecuada la masa de gramos a kilogramos, introduciendo un factor erróneo de 1000 dentro del radical." },
+                    { text: "$160\\text{ m/s}$", isCorrect: false, rationale: "Este valor asume incorrectamente que la velocidad de propagación es igual a la tensión aplicada directamente sobre el conductor mecánico." },
+                    { text: "$20\\text{ m/s}$", isCorrect: false, rationale: "Este resultado es incorrecto y no se corresponde con las leyes de propagación elástica de ondas en medios unidimensionales tensados." }
+                ]
+            },
+            {
+                category: "Hidrostática (Arquímedes)",
+                question: "Un cuerpo esférico que actúa como densímetro de radio $R$ flota en equilibrio estático en un estanque lleno de agua dulce ($\\rho_{\\\\text{agua}} = 1000\\text{ kg/m}^3$). Si se observa que el agua cubre exactamente la mitad de su volumen total, ¿cuál es la densidad promedio del densímetro?",
+                hint: "Aplica el Principio de Arquímedes. Recuerda que la fracción de volumen sumergido de un cuerpo flotante está dada directamente por la relación $\\frac{V_{\\\\text{sum}}}{V} = \\frac{\\rho_{\\\\text{cuerpo}}}{\\rho_{\\\\text{fluido}}}$.",
+                options: [
+                    { text: "$500\\text{ kg/m}^3$", isCorrect: true, rationale: "Para un cuerpo flotante en equilibrio, el peso real es igual al empuje hidrostático: $\\rho_{\\\\text{cuerpo}} V g = \\rho_{\\\\text{fluido}} V_{\\\\text{sumergido}} g$. Al estar sumergido a la mitad ($V/2$), la densidad del cuerpo es la mitad de la del fluido." },
+                    { text: "$250\\text{ kg/m}^3$", isCorrect: false, rationale: "Una densidad tan baja provocaría que la esfera flote de forma más superficial, dejando únicamente un cuarto de su volumen bajo la superficie libre del agua." },
+                    { text: "$1000\\text{ kg/m}^3$", isCorrect: false, rationale: "Si la densidad promedio de la esfera fuera igual a la del agua, esta se encontraría en un estado de flotación neutra (completamente sumergida en cualquier punto del fluido)." },
+                    { text: "$750\\text{ kg/m}^3$", isCorrect: false, rationale: "Esta densidad implicaría que el $75\\%$ del volumen del cuerpo se encuentra por debajo de la superficie del agua y solo una cuarta parte asomaría en el exterior." }
+                ]
+            },
+            {
+                category: "Hidrodinámica I (Continuidad)",
+                question: "Por una tubería horizontal cilíndrica circula agua en régimen estacionario e ideal. Si la sección transversal del conducto disminuye bruscamente a la tercera parte de su valor original ($A_2 = A_1 / 3$), ¿cómo varían el caudal ($Q$) y la velocidad ($v$) del fluido?",
+                hint: "Aplica la Ley de Continuidad para fluidos ideales e incompresibles. Considera qué magnitud física representa la conservación de la masa en un tubo de corriente.",
+                options: [
+                    { text: "El caudal permanece perfectamente constante y la velocidad del agua se triplica.", isCorrect: true, rationale: "Para fluidos incompresibles en régimen estacionario, el caudal se conserva (conservación de la masa). Por la ecuación de continuidad ($A_1 v_1 = A_2 v_2$), la velocidad debe triplicarse." },
+                    { text: "El caudal disminuye a la tercera parte y la velocidad del agua se mantiene constante.", isCorrect: false, rationale: "Esto viola la ley de conservación de la masa para fluidos continuos, ya que el caudal de entrada debe ser idéntico al de salida." },
+                    { text: "El caudal se triplica y la velocidad disminuye a la tercera parte.", isCorrect: false, rationale: "Esta suposición invierte erróneamente el comportamiento cinemático y volumétrico del fluido en zonas de estrechamiento mecánico." },
+                    { text: "Tanto el caudal volumétrico como la velocidad local se triplican de manera simultánea.", isCorrect: false, rationale: "La continuidad impide que el caudal aumente de la nada; el caudal solo puede variar si cambia la inyección de masa en el origen del sistema." }
+                ]
+            },
+            {
+                category: "Hidrodinámica I (Bernoulli)",
+                question: "Al medir el flujo de agua a través de un tubo de Venturi horizontal, se observa que en la garganta (sección más estrecha del conducto) la velocidad del flujo es mucho mayor que en la entrada. De acuerdo con la Ecuación de Bernoulli, ¿qué ocurre con la presión estática en dicha garganta?",
+                hint: "Analiza la Ecuación de Bernoulli para un plano de referencia horizontal: $P + \\frac{1}{2}\\rho v^2 = \\text{constante}$. ¿Qué pasa con la presión $P$ cuando la velocidad $v$ aumenta?",
+                options: [
+                    { text: "La presión estática disminuye con respecto a la presión de entrada.", isCorrect: true, rationale: "La ecuación de Bernoulli establece que a mayor velocidad (presión dinámica), menor será la presión estática a lo largo de una línea de corriente horizontal para conservar la energía total." },
+                    { text: "La presión estática aumenta proporcionalmente al incremento de la velocidad.", isCorrect: false, rationale: "Esto contradice la conservación de la energía; un aumento simultáneo de presión y velocidad violaría la primera ley de la termodinámica sin aporte de trabajo externo." },
+                    { text: "La presión estática permanece perfectamente igual para mantener el equilibrio de fuerzas horizontales.", isCorrect: false, rationale: "Si las presiones fueran idénticas, no existiría la fuerza neta requerida para acelerar las partículas de fluido desde la entrada ancha hasta el cuello estrecho." },
+                    { text: "La presión estática desciende inmediatamente a un estado de vacío absoluto ($P = 0$ Pa).", isCorrect: false, rationale: "Aunque la presión disminuye por el efecto Venturi, raramente alcanza el vacío absoluto, a menos que el flujo alcance condiciones extremas de cavitación." }
+                ]
+            },
+            {
+                category: "Hidrodinámica II (Reynolds)",
+                question: "Para evaluar un conducto del sistema de enfriamiento de un generador síncrono en la FIEE, se mide que en una tubería de diámetro $D = 2\\text{ cm}$ la velocidad media del agua es $v_m = 0.1\\text{ m/s}$. Tomando para el agua $\\rho = 1000\\text{ kg/m}^3$ y $\\eta = 1.0 \\times 10^{-3}\\text{ Pa}\\cdot\\text{s}$: ¿Cuál es el número de Reynolds ($Re$) y qué régimen de flujo presenta?",
+                hint: "Emplea la ecuación fundamental adimensional del Número de Reynolds: $Re = \\frac{\\rho v_m D}{\\eta}$ y recuerda los límites de transición en tuberías de sección circular.",
+                options: [
+                    { text: "$Re = 2000$, régimen laminar.", isCorrect: true, rationale: "Calculando $Re = \\frac{\\rho v_m D}{\\eta} = \\frac{1000 \\cdot 0.1 \\cdot 0.02}{10^{-3}} = 2000$. Al ser menor que el límite crítico de 2300 para tuberías cilíndricas, el régimen es estrictamente laminar." },
+                    { text: "$Re = 2000$, régimen turbulento.", isCorrect: false, rationale: "El número de Reynolds calculado es correcto, pero la conclusión de régimen es errónea, ya que a un número de 2000 las fuerzas viscosas todavía logran amortiguar las perturbaciones." },
+                    { text: "$Re = 20000$, régimen turbulento.", isCorrect: false, rationale: "Este resultado es producto de un error multiplicador de unidades en el cálculo aritmético, ignorando el orden de magnitud de la viscosidad del agua." },
+                    { text: "$Re = 200$, régimen laminar.", isCorrect: false, rationale: "Este valor subestima por un factor de diez la relación de fuerzas de inercia presentes en el conducto de cobre del generador." }
+                ]
+            },
+            {
+                category: "Hidrodinámica II (Poiseuille)",
+                question: "Según la Ley de Hagen-Poiseuille para flujo laminar en tuberías, si el radio de un ducto de aceite dieléctrico en un transformador se reduce a la mitad ($R \\to R/2$) por acumulación de sedimentos calcáreos, ¿qué ocurre con la diferencia de presión ($\\Delta P$) requerida para sostener constante el caudal original ($Q$)?",
+                hint: "Despeja la caída de presión en la Ley de Hagen-Poiseuille: $\\Delta P = \\frac{8 \\eta L Q}{\\pi R^4}$. Analiza el comportamiento exponencial del término del radio ($R$) en el denominador.",
+                options: [
+                    { text: "La diferencia de presión requerida se incrementa en $16$ veces ($16\\Delta P$).", isCorrect: true, rationale: "La Ley de Hagen-Poiseuille indica que el caudal es directamente proporcional a la cuarta potencia del radio ($R^4$). Por lo tanto, reducir el radio a la mitad exige un aumento de presión de $2^4 = 16$ veces para mantener el mismo flujo." },
+                    { text: "La diferencia de presión requerida debe duplicarse ($2\\Delta P$).", isCorrect: false, rationale: "Esto asume erróneamente que la resistencia hidráulica tiene una relación de proporcionalidad puramente lineal con el radio de la tubería." },
+                    { text: "La diferencia de presión requerida aumenta $4$ veces ($4\\Delta P$).", isCorrect: false, rationale: "Este cálculo asume una relación inversa con el área de la sección transversal ($R^2$), la cual no rige las pérdidas por arrastre viscoso interno de Poiseuille." },
+                    { text: "La diferencia de presión requerida disminuye a la mitad de su valor original.", isCorrect: false, rationale: "Si el conducto es más estrecho, la resistencia hidráulica aumenta significativamente, por lo que es imposible que se necesite menos presión para sostener el mismo flujo." }
+                ]
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let answered = false;
+
+        function startQuiz() {
+            document.getElementById('welcome-screen').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.remove('hidden');
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            answered = false;
+            document.getElementById('feedback-box').classList.add('hidden');
+            document.getElementById('hint-box').classList.add('hidden');
+            document.getElementById('btn-hint').classList.remove('hidden');
+            document.getElementById('btn-next').classList.add('hidden');
+            document.getElementById('btn-next').disabled = true;
+
+            const q = quizData[currentQuestion];
+            document.getElementById('current-question-num').innerText = currentQuestion + 1;
+            document.getElementById('category-badge').innerText = q.category;
+            document.getElementById('question-text').innerHTML = q.question;
+            document.getElementById('hint-text').innerText = q.hint;
+
+            const progressPercent = ((currentQuestion) / quizData.length) * 100;
+            document.getElementById('progress-bar').style.width = `${progressPercent}%`;
+
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+
+            q.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "option-btn w-full text-left p-4 rounded-xl border-2 border-slate-200 hover:border-blue-400 hover:bg-blue-50/50 font-medium text-sm flex justify-between items-center bg-white transition-all duration-150 outline-none cursor-pointer";
+                btn.innerHTML = `<span>${opt.text}</span> <span class="choice-marker text-slate-300 font-bold"></span>`;
+                btn.onclick = () => selectOption(idx, btn);
+                optionsContainer.appendChild(btn);
+            });
+
+            if (window.MathJax && window.MathJax.typesetPromise) {
+                window.MathJax.typesetPromise();
+            }
+        }
+
+        function toggleHint() {
+            const hintBox = document.getElementById('hint-box');
+            hintBox.classList.toggle('hidden');
+        }
+
+        function selectOption(index, clickedBtn) {
+            if (answered) return;
+            answered = true;
+
+            const q = quizData[currentQuestion];
+            const selectedOpt = q.options[index];
+            const allButtons = document.querySelectorAll('.option-btn');
+
+            document.getElementById('btn-hint').classList.add('hidden');
+            document.getElementById('hint-box').classList.add('hidden');
+
+            if (selectedOpt.isCorrect) {
+                score++;
+                clickedBtn.classList.remove('border-slate-200', 'hover:border-blue-400', 'hover:bg-blue-50/50');
+                clickedBtn.classList.add('border-green-500', 'bg-green-50', 'text-green-900');
+                clickedBtn.querySelector('.choice-marker').innerHTML = `✓`;
+                clickedBtn.querySelector('.choice-marker').className = "choice-marker text-green-600 font-bold";
+                showFeedback(true, selectedOpt.rationale);
+            } else {
+                clickedBtn.classList.remove('border-slate-200', 'hover:border-blue-400', 'hover:bg-blue-50/50');
+                clickedBtn.classList.add('border-red-500', 'bg-red-50', 'text-red-900');
+                clickedBtn.querySelector('.choice-marker').innerHTML = `✗`;
+                clickedBtn.querySelector('.choice-marker').className = "choice-marker text-red-600 font-bold";
+
+                allButtons.forEach((btn, idx) => {
+                    if (q.options[idx].isCorrect) {
+                        btn.classList.add('border-green-300', 'bg-green-50/30');
+                    }
+                });
+                showFeedback(false, selectedOpt.rationale);
+            }
+
+            allButtons.forEach(btn => btn.disabled = true);
+
+            const btnNext = document.getElementById('btn-next');
+            btnNext.classList.remove('hidden');
+            btnNext.disabled = false;
+        }
+
+        function showFeedback(isCorrect, text) {
+            const fBox = document.getElementById('feedback-box');
+            const fTitle = document.getElementById('feedback-title');
+            const fIcon = document.getElementById('feedback-icon');
+            const fText = document.getElementById('feedback-text');
+
+            fBox.classList.remove('hidden', 'bg-green-50', 'border-green-200', 'text-green-900', 'bg-red-50', 'border-red-200', 'text-red-900');
+
+            if (isCorrect) {
+                fBox.classList.add('bg-green-50', 'border-green-200', 'text-green-900');
+                fTitle.innerText = "¡Excelente Respuesta!";
+                fIcon.innerText = "🟢";
+            } else {
+                fBox.classList.add('bg-red-50', 'border-red-200', 'text-red-900');
+                fTitle.innerText = "Respuesta Incorrecta";
+                fIcon.innerText = "🔴";
+            }
+
+            fText.innerHTML = text;
+
+            if (window.MathJax && window.MathJax.typesetPromise) {
+                window.MathJax.typesetPromise();
+            }
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            if (currentQuestion < quizData.length) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('quiz-screen').classList.add('hidden');
+            document.getElementById('results-screen').classList.remove('hidden');
+            
+            document.getElementById('progress-bar').style.width = '100%';
+            document.getElementById('score-text').innerText = `${score}/10`;
+
+            const strokeDash = (score / 10) * 100;
+            setTimeout(() => {
+                document.getElementById('score-circle').setAttribute('stroke-dasharray', `${strokeDash}, 100`);
+            }, 300);
+
+            const perfBox = document.getElementById('performance-feedback');
+            perfBox.className = "max-w-md mx-auto mb-8 p-5 rounded-xl border text-left ";
+            
+            if (score >= 9) {
+                perfBox.classList.add('bg-green-50', 'border-green-200', 'text-green-900');
+                perfBox.innerHTML = `<h4 class="font-bold text-base mb-1" style="margin-top:0px;">🥇 ¡Nivel Sobresaliente!</h4><p class="text-sm">Has demostrado un dominio excepcional en la resolución de problemas teóricos y prácticos de Física 2. ¡Estás listo para las evaluaciones parciales de la UNAC!</p>`;
+            } else if (score >= 7) {
+                perfBox.classList.add('bg-blue-50', 'border-blue-200', 'text-blue-900');
+                perfBox.innerHTML = `<h4 class="font-bold text-base mb-1" style="margin-top:0px;">🥈 ¡Buen Trabajo!</h4><p class="text-sm">Muestras un entendimiento sólido de las leyes físicas desarrolladas en el curso. Analiza los detalles de sensibilidad de tus desafíos para alcanzar el nivel óptimo.</p>`;
+            } else if (score >= 5) {
+                perfBox.classList.add('bg-yellow-50', 'border-yellow-200', 'text-yellow-900');
+                perfBox.innerHTML = `<h4 class="font-bold text-base mb-1" style="margin-top:0px;">🥉 Nivel Aceptable</h4><p class="text-sm">Manejas los conceptos básicos pero requieres repasar el modelado analítico mediante cálculo y ecuaciones diferenciales antes de tus prácticas de laboratorio.</p>`;
+            } else {
+                perfBox.classList.add('bg-red-50', 'border-red-200', 'text-red-900');
+                perfBox.innerHTML = `<h4 class="font-bold text-base mb-1" style="margin-top:0px;">⚠️ Requiere Reforzamiento</h4><p class="text-sm">Es muy importante que repases las sesiones teóricas de base de datos de elasticidad e hidrodinámica viscosa. Consulta a tu docente para resolver vacíos teóricos.</p>`;
+            }
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            document.getElementById('results-screen').classList.add('hidden');
+            document.getElementById('welcome-screen').classList.remove('hidden');
+            document.getElementById('progress-bar').style.width = '0%';
+            document.getElementById('score-circle').setAttribute('stroke-dasharray', `0, 100`);
+        }
+    </script>
+</body>
+</html>

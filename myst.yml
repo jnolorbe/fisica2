@@ -26,6 +26,12 @@ project:
         - file: sesiones/sesion05.md
         - file: sesiones/sesion06.md
         - file: sesiones/sesion07.md
+        - file: sesiones/sesion08.md
+    - title: Unidad 3
+      children:
+        - file: sesiones/sesion09.md
+        - file: sesiones/sesion10.md
+        - file: sesiones/sesion11.md 
 site:
   template: book-theme
   # options:

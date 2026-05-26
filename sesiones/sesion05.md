@@ -139,7 +139,7 @@ $$A_1 d_1 = A_2 d_2 \Rightarrow d_2 = d_1 \cdot \frac{A_1}{A_2}$$
 
 **Principio de Arquímedes (250 a.C.):** Todo cuerpo sumergido en un fluido experimenta un empuje vertical hacia arriba igual al peso del fluido desalojado.
 
-$$\vec{E} = \rho_{fluido} \cdot V_{sumergido} \cdot g \quad \text{(hacia arriba)}$$
+$$\vec{E} = \rho_{fluido} \, V_{sumergido} \, g \quad \text{(hacia arriba)}$$
 
 **Condiciones de flotación:**
 
@@ -426,7 +426,7 @@ $$y_{cp} = 1.25 + \frac{3.906}{1.25 \times 7.5} = 1.25 + 0.417 = 1.667 \text{ m 
 Desde la bisagra: $2.5 - 1.667 = 0.833$ m. **Verificado.**
 
 **(c) Torque respecto a la bisagra:**
-$$\tau = F \times d_{cp} = 45937.5 \times 0.833 \approx 38264 \text{ N·m} \approx 38.3 \text{ kN·m}$$
+$$\tau = F \times d_{cp} = 45937.5 \times 0.833 \approx 38264 \text{Nm} \approx 38.3 \text{ kNm}$$
 
 **(d) Fuerza del actuador hidráulico:**
 
