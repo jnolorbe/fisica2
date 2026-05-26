@@ -2,6 +2,6 @@
 
 ## 📌 I. Fundamento Teórico
 
-En esta sesión se estudia el movimiento de fluidos viscosos.
+En esta sesión se estudia el movimiento de fluidos viscosos. Ley Poiseuille
 
 ---
